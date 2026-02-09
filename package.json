@@ -1,0 +1,22 @@
+{
+  "name": "secure-ecommerce-platform",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev:backend": "npm --prefix backend run start:dev",
+    "dev": "concurrently -k \"npm:dev:frontend\" \"npm:dev:backend\"",
+    "lint:frontend": "npm --prefix frontend run lint",
+    "lint:backend": "npm --prefix backend run lint",
+    "lint": "npm run lint:frontend && npm run lint:backend",
+    "format": "prettier -w .",
+    "format:check": "prettier -c ."
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "prettier": "^3.2.5"
+  }
+}
